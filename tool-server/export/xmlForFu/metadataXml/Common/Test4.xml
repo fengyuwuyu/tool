@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <imports>
+        <import path="TestHead.xml" />
+        <import category="Common" />
+        <import />
+    </imports>
+    <types category="Common" moduleName="Test4">
+        <struct name="StructChild111">
+            <item name="BoolValue" type="bool" />
+            <item name="BytesValue" type="bytes" />
+            <item name="IntValue" type="int" />
+            <item name="LongValue" type="long" />
+            <item name="FloatValue" type="float" />
+            <item name="DoubleValue" type="double" />
+            <item name="StringValue" type="string" />
+            <item name="EnumValue" type="EnumExample" />
+            <item name="StructBaseValue" type="StructBase" />
+            <item name="BoolValueList" type="bool" attribute="repeated" required="1" />
+            <item name="BytesValueList" type="bytes" attribute="repeated" />
+            <item name="IntValueList" type="int" attribute="repeated" />
+            <item name="LongValueList" type="long" attribute="repeated" />
+            <item name="FloatValueList" type="float" attribute="repeated" />
+            <item name="DoubleValueList" type="double" attribute="repeated" />
+            <item name="StringValueList" type="string" attribute="repeated" />
+            <item name="EnumValueList" type="EnumExample" attribute="repeated" />
+            <item name="StructBaseValueList" type="StructBase" attribute="repeated" />
+        </struct>
+    </types>
+</root>

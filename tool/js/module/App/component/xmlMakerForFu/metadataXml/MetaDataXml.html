@@ -1,0 +1,39 @@
+<div class="metaDataXmlPanel" [class.active]="active">
+    <div class="leftPanel">
+        <div class="btnGroup">
+            <a href="javascript:void(0)" (click)="createMetaDataXml()">添加</a>
+            <a href="javascript:void(0)" (click)="editMetaDataXml()">修改</a>
+            <a href="javascript:void(0)" (click)="removeMetaDataXml()">删除</a>
+        </div>
+        <div class="sidebar">
+            <ul >
+                <li *ngFor="let category of categoryList" class="title" (click)="titleClickFn($event)" id="{{category}}"><span id="{{category}}">{{category}}</span>
+                    <ul class="in-sidebar">
+                        <li *ngFor="let metadataXml of getMetaDataXmlListByCategory(category)" id="{{category}}-{{getMetaDataXmlBaseInfo(metadataXml).moduleName}}" [class.active]="metadataXml.active" (click)="changeMetaDataXml(metadataXml)">
+                            {{getMetaDataXmlBaseInfo(metadataXml).moduleName}}
+                            <a href={{metadataXml.downloadUrl}} download="{{getMetaDataXmlBaseInfo(metadataXml).moduleName}}.xml" target="_blank" class="download">download</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="rightPanel">
+        <div class="prePanel" [class.active]="!editting">
+            <pre id="metaDataWin" class="brush">
+            </pre>
+        </div>
+        <div class="formPanel" [class.active]="editting">
+            <div class="textareaPanel">
+                <textarea ></textarea>
+            </div>
+            <div class="btnGroup">
+                <a href="javascript:void(0)" (click)="saveMetaDataXml()" >保存</a>
+                <a href="javascript:void(0)" (click)="cancelEditXml()" >取消</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="metaDataDiv">
+
+</div>

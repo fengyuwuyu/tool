@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <imports>
+        <import category="Common" path="Test" />
+    </imports>
+    <types>
+        <struct name="User1">
+            <item name="id" type="int" />
+            <item name="name" type="string" />
+            <item name="passwd" type="string" />
+            <item name="passwd1" type="string" />
+        </struct>
+    </types>
+    <module id="10001" name="Test">
+        <Client>
+            <method id="1001" name="getById">
+                <item name="id" type="int" />
+                <item name="user" type="User" />
+            </method>
+        </Client>
+        <Server />
+    </module>
+</root>

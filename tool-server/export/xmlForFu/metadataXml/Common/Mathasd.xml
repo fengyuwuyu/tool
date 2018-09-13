@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <imports>
+        <import />
+    </imports>
+    <types category="Common" moduleName="Mathasd">
+        <struct name="Vector4f">
+            <item name="X" type="float" />
+            <item name="Y" type="float" />
+            <item name="Z" type="float" />
+            <item name="W" type="float" />
+        </struct>
+    </types>
+</root>

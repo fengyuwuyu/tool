@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <imports>
+        <import category="asd" path="asd" />
+        <import category="asd" />
+    </imports>
+    <types>
+        <enum name="BindType">
+            <eitem name="Qq" value="1" />
+            <eitem name="Wechat" value="2" />
+            <eitem name="Weibo" value="3" />
+        </enum>
+        <struct name="AuthDevUserMsg">
+            <item name="AdminIDs" type="string" />
+            <item name="MoniID" type="long" />
+            <item name="AuthenticationID" type="string" />
+            <!--
+            1/0 yes/no
+            -->
+            <item name="Pass" type="int" />
+            <item name="Note" type="string" />
+        </struct>
+    </types>
+    <module id="10" name="Test" service="Service1">
+        <events>
+            <event id="1" name="E1" type="1" level="info" ack="0">
+                <!--
+                asdasdasd
+                -->
+                <item name="GateId" type="int" />
+                <item name="SessionKey" type="bytes" attribute="repeated" />
+                <item name="IpAddress" type="string" />
+            </event>
+        </events>
+    </module>
+</root>

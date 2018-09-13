@@ -1,0 +1,23 @@
+@import (reference) "./../../../../css/base";
+.loading {
+    .rect(100%, 100%);
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    text-align: center;
+    display: -webkit-box;
+    display: -moz-box;
+    -webkit-box-pack:center;
+    -moz-box-pack:center;
+    -webkit-box-align:center;
+    -moz-box-align:center;
+    font-size: 3rem;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 100000;
+    display: none;
+    color: #fff;
+    &.active {
+        display: -webkit-box;
+        display: -moz-box;
+    }
+}

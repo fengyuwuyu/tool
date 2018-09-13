@@ -1,0 +1,38 @@
+<div class="eventXmlPanel" [class.active]="active">
+    <div class="leftPanel">
+        <div class="btnGroup">
+            <a href="javascript:void(0)" (click)="createEventXml()">添加</a>
+            <a href="javascript:void(0)" (click)="editEventXml()">修改</a>
+            <a href="javascript:void(0)" (click)="removeEventXml()">删除</a>
+        </div>
+        <div class="searchCommand">
+            <input type="text" id="key" (keydown)="filterLabel()" />
+        </div>
+        <div class="list" >
+            <ul >
+                <li *ngFor="let eventXml of eventXmlList"  [class.active]="eventXml.active" (click)="changeEventXml(eventXml)">
+                    {{getEventXmlBaseInfo(eventXml).service || getEventXmlBaseInfo(eventXml).name}}
+                    <a href={{eventXml.downloadUrl}} download="{{getEventXmlBaseInfo(eventXml).service || getEventXmlBaseInfo(eventXml).name}}.xml" target="_blank" class="download">download</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="rightPanel">
+        <div class="prePanel" [class.active]="!editting">
+            <pre id="wolverienEventWin" class="brush: c-sharp;">
+            </pre>
+        </div>
+        <div class="formPanel" [class.active]="editting">
+            <div class="textareaPanel">
+                <textarea ></textarea>
+            </div>
+            <div class="btnGroup">
+                <a href="javascript:void(0)" (click)="saveEventXml()" >保存</a>
+                <a href="javascript:void(0)" (click)="cancelEditXml()" >取消</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="wolverienEventDiv">
+
+</div>

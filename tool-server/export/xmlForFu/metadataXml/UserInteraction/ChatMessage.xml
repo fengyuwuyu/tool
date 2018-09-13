@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <imports>
+        <import />
+    </imports>
+    <types category="UserInteraction" moduleName="ChatMessage">
+        <enum name="SessionType">
+            <eitem name="TempFriend" />
+        </enum>
+        <enum name="MessagePieceType">
+            <eitem name="Text" />
+            <eitem name="Picture" />
+            <eitem name="Voice" />
+            <eitem name="Customed" />
+        </enum>
+        <struct name="TextPiece">
+            <item name="Text" type="string" attribute="required" />
+        </struct>
+        <struct name="PicturePiece">
+            <item name="Thumbnail" type="bytes" attribute="required" />
+            <item name="ResourceId" type="string" attribute="required" />
+        </struct>
+        <struct name="VoicePiece">
+            <item name="VoiceData" type="bytes" attribute="required" />
+            <item name="VoiceLengthSeconds" type="int" attribute="required" />
+        </struct>
+        <struct name="CustomedPiece">
+            <item name="Data" type="bytes" attribute="required" />
+            <item name="ResourceId" type="string" attribute="repeated" />
+            <item name="Type" type="int" attribute="required" />
+        </struct>
+        <struct name="MessagePiece">
+            <item name="Type" type="MessagePieceType" attribute="required" />
+            <item name="TextPiece" type="TextPiece" attribute="optional" />
+            <item name="PicturePiece" type="PicturePiece" attribute="optional" />
+            <item name="VoicePiece" type="VoicePiece" attribute="optional" />
+            <item name="CustomedPiece" type="CustomedPiece" attribute="optional" />
+        </struct>
+        <struct name="MessageBody">
+            <item name="Pieces" type="MessagePiece" attribute="repeated" />
+        </struct>
+        <!--
+        消息发送的目标
+        -->
+        <struct name="MessageSession">
+            <item name="SmallerId" type="long" attribute="required" />
+            <item name="BiggerId" type="long" attribute="required" />
+            <item name="SessionType" type="SessionType" attribute="required" />
+        </struct>
+        <!--
+        消息发送者
+        -->
+        <struct name="MessageRouter">
+            <item name="SenderId" type="long" attribute="required" />
+            <item name="ReceiverId" type="long" attribute="required" />
+        </struct>
+        <!--
+        消息属性
+			CreateTime 我们按照时间戳的顺序对消息进行排序，如果时间戳相同，那么userId较小的发送方发送的消息当作时间戳较小来处理
+        -->
+        <struct name="MessageProperty">
+            <item name="CreateTime" type="long" attribute="required" />
+            <item name="Router" type="MessageRouter" attribute="required" />
+            <item name="Session" type="MessageSession" attribute="required" />
+        </struct>
+        <!--
+        完整的消息
+        -->
+        <struct name="ChatMessage">
+            <item name="Property" type="MessageProperty" attribute="required" />
+            <item name="Body" type="MessageBody" attribute="required" />
+        </struct>
+    </types>
+</root>

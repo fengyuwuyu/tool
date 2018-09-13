@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <imports>
+        <import category="Common" path="Notification" />
+        <import category="UserInteraction" path="ChatMessage" />
+    </imports>
+    <types />
+    <module id="10056" name="Momo">
+        <Client />
+        <Server />
+        <Notification>
+            <notify id="1" name="MomoMessage" businessType="Momo" broadcast="1">
+                <item name="Message" type="MessageBody" attribute="required" />
+            </notify>
+            <notify id="2" name="DeliverItemNotifyEntity" businessType="Mail">
+                <item name="itemID" type="string" attribute="required" />
+                <item name="receivetMoniID" type="long" attribute="required" />
+                <item name="deliverType" type="int" attribute="required" />
+                <item name="itemName" type="string" attribute="required" />
+                <item name="itemType" type="int" attribute="required" />
+                <item name="count" type="int" attribute="required" />
+            </notify>
+            <notify id="3" name="MomoAnnouncement" businessType="Momo">
+                <item name="Title" type="string" attribute="required" />
+                <item name="Content" type="string" attribute="required" />
+            </notify>
+            <notify id="4" name="AudItemNotifyEntity" businessType="Mail">
+                <item name="MoniID" type="long" attribute="required" />
+                <item name="ItemID" type="string" attribute="required" />
+                <item name="ItemName" type="string" attribute="required" />
+                <item name="ItemCategory" type="string" attribute="required" />
+                <item name="ItemType" type="string" attribute="required" />
+                <item name="AuditDate" type="long" attribute="required" />
+                <item name="CreateDate" type="long" attribute="required" />
+                <item name="ExpireDate" type="long" attribute="required" />
+                <item name="Pass" type="int" attribute="required" />
+                <item name="Note" type="string" attribute="optional" />
+            </notify>
+        </Notification>
+    </module>
+</root>

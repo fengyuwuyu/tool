@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <imports>
+        <import />
+    </imports>
+    <types />
+    <module id="10" name="Tee">
+        <records>
+            <record recordId="123" name="T" />
+        </records>
+    </module>
+</root>

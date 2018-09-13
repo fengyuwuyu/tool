@@ -1,0 +1,211 @@
+@import (reference) "../../../../../css/base";
+.xmlMakerForFu {
+    .rect(100%, 100%);
+    .tabMenu {
+        .rect(100%, 40px);
+        .position_relative();
+        border-bottom: 1px solid gray;
+        border-box: border-sizing;
+        line-height: 40px;
+        ul {
+            overflow: hidden;
+        }
+        li {
+            float: left;
+            margin: 0px 10px;
+            .position_relative();
+            a {
+                display: block;
+                padding: 0px 10px;
+            }
+            &.active:after, &:hover:after {
+                content: "";
+                display: block;
+                background: red;
+                .rect(100%, 2px);
+                .position_absolute_bottom();
+            }
+        }
+        .backup-btn {
+            .rect(80px, 25px);
+            .position_absolute_right(1rem, 50%);
+            -webkit-transform: translateY(-50%);
+            display: block;
+            border-radius: 5px;
+            border: 1px solid gray;
+            color: gray;
+            line-height: 25px;
+            text-align: center;
+            background-image: -webkit-linear-gradient(top,#d9534f 0,#c12e2a 100%);
+            background-image: -o-linear-gradient(top,#d9534f 0,#c12e2a 100%);
+            background-image: -webkit-gradient(linear,left top,left bottom,from(#d9534f),to(#c12e2a));
+            background-image: linear-gradient(to bottom,#d9534f 0,#c12e2a 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd9534f', endColorstr='#ffc12e2a', GradientType=0);
+            filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+            background-repeat: repeat-x;
+            border-color: #b92c28;
+            color: #fff;
+        }
+    }
+    .tabPanel {
+        .rect(100%, ~"calc(100% - 40px)");
+        .moduleXmlPanel, .typeXmlPanel, .commandXmlPanel {
+            .rect(100%, 100%);
+            overflow: hidden;
+            display: none;
+            &.active {
+                display: block;
+            }
+        }
+        .leftPanel {
+            .rect(20%, 100%);
+            float: left;
+            border-right: 1px solid #D5D5D5;
+            box-sizing: border-box;
+            .btnGroup {
+                .rect(100%, 35px);
+                border-bottom: 1px solid #D5D5D5;
+                box-sizing: border-box;
+                overflow: hidden;
+                a {
+                    width: 30%;
+                    height: 34px;
+                    margin-left: 2.5%;
+                    display: block;
+                    float: left;
+                    border: 1px solid gray;
+                    box-sizing: border-box;
+                    text-align: center;
+                    line-height: 35px;
+                    border-radius: 5px;
+                }
+            }
+            .list {
+                .rect(100%, ~"calc(100% - 35px)");
+                overflow: hidden;
+                overflow-y: auto;
+                li {
+                    line-height: 35px;
+                    height: 35px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    border-bottom: 1px dashed #D5D5D5;
+                    text-indent: 2rem;
+                    .position_relative();
+                    .download {
+                        .position_absolute_right(2rem);
+                        display: block;
+                        color: #81CC86;
+                        text-indent: 0px;
+                    }
+                    &.active {
+                        background: #D5D5D5;
+                    }
+                }
+            }
+        }
+        .rightPanel {
+            .rect(80%, 100%);
+            float: left;
+            .prePanel, .formPanel {
+                .rect(100%, 100%);
+                border: 1px solid #D5D5D5;
+                border-left: 0px;
+                box-sizing: border-box;
+                display: none;
+                &.active {
+                    display: block;
+                }
+            }
+            .prePanel pre {
+                .rect(100%, 100%);
+                overflow: auto;
+            }
+            .formPanel .textareaPanel {
+                .rect(100%, ~"calc(100% - 40px)");
+            }
+            .formPanel .btnGroup {
+                .rect(100%, 40px);
+                border-top: 1px solid gray;
+                box-sizing: border-box;
+                text-align: center;
+                a {
+                    display: inline-block;
+                    width: 150px;
+                    height: 39px;
+                    border: 1px solid gray;
+                    box-sizing: border-box;
+                    text-align: center;
+                    line-height: 39px;
+                    border-radius: 5px;
+                }
+            }
+            .formPanel textarea {
+                -webkit-appearance: none;
+                padding: 0;
+                margin: 0;
+                outline: none;
+                border: 0px;
+                min-width: 100%;
+                min-height: 100%;
+            }
+            .formPanel textarea, .prePanel pre {
+                font-size: 1.5rem;
+                line-height: 2rem;
+            }
+        }
+        .typeXmlPanel {
+            .prePanel, .formPanel {
+                .fileName {
+                    -webkit-appearance: none;
+                    outline: none;
+                    border: 0px;
+                    padding: 0;
+                    margin: 0;
+                    .rect(100%, 35px);
+                    border-bottom: 1px solid #D5D5D5;
+                    box-sizing: border-box;
+                    text-indent: 3rem;
+                }
+                pre {
+                    height: ~"calc(100% - 35px)";
+                }
+            }
+            .formPanel {
+                .fileName {
+                    text-indent: 0px;
+                }
+            }
+        }
+        pre {
+            .struct, .enum, .cs, .fun, .enumType, .structType, .type {
+                color:#0000FF;
+            }
+            .structName, .enumName, .csName {
+                color: #2B91AF;
+            }
+            .str {
+                color: #A3152A
+            }
+            .comment {
+                color: #348000;
+            }
+        }
+    }
+    .CodeMirror {
+        height: 100%;
+        border: 1px solid #ddd;
+    }
+    .CodeMirror-scroll {
+        //max-height: 200px;
+    }
+    .CodeMirror pre {
+        padding-left: 7px;
+        line-height: 1.25;
+    }
+    .typeXmlPanel {
+        .CodeMirror {
+            height: ~"calc(100% - 35px)";
+        }
+    }
+}

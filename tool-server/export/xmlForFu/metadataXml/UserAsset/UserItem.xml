@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <imports>
+        <import category="Common" />
+    </imports>
+    <types category="UserAsset" moduleName="UserItem">
+        <struct name="DyeEffect">
+            <item name="ColorUVTrans" type="Vector4f" attribute="repeated" />
+            <item name="ColorYOffset" type="float" attribute="repeated" />
+        </struct>
+        <struct name="DyeLogic">
+            <item name="DyeableItemCategories" type="int" attribute="repeated" />
+            <item name="dyeEffect" type="DyeEffect" />
+        </struct>
+    </types>
+</root>

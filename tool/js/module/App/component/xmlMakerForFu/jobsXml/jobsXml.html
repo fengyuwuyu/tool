@@ -1,0 +1,38 @@
+<div class="httpCommandXmlPanel" [class.active]="active">
+    <div class="leftPanel">
+        <div class="btnGroup">
+            <a href="javascript:void(0)" (click)="createJobsXml()">添加</a>
+            <a href="javascript:void(0)" (click)="editJobsXml()">修改</a>
+            <a href="javascript:void(0)" (click)="removeJobsXml()">删除</a>
+        </div>
+        <div class="searchCommand">
+            <input type="text" id="key" (keydown)="filterLabel()" />
+        </div>
+        <div class="list" >
+            <ul >
+                <li *ngFor="let jobsXml of jobsXmlList"  [class.active]="jobsXml.active" (click)="changeJobsXml(jobsXml)">
+                    {{getJobsXmlBaseInfo(jobsXml).service || getJobsXmlBaseInfo(jobsXml).name}}
+                    <a href={{jobsXml.downloadUrl}} download="{{getJobsXmlBaseInfo(jobsXml).service || getJobsXmlBaseInfo(jobsXml).name}}.xml" target="_blank" class="download">download</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="rightPanel">
+        <div class="prePanel" [class.active]="!editting">
+            <pre id="jobsWin" class="brush: c-sharp;">
+            </pre>
+        </div>
+        <div class="formPanel" [class.active]="editting">
+            <div class="textareaPanel">
+                <textarea ></textarea>
+            </div>
+            <div class="btnGroup">
+                <a href="javascript:void(0)" (click)="saveJobsXml()" >保存</a>
+                <a href="javascript:void(0)" (click)="cancelEditXml()" >取消</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="jobsDiv">
+
+</div>

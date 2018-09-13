@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <imports>
+        <import category="Common" path="Notification" />
+        <import category="Common" path="Sms" />
+        <import category="Common" path="Platform" />
+    </imports>
+    <types>
+        <struct name="SlotInfo">
+            <item name="ItemID" type="string" />
+            <item name="Category" type="int" />
+            <item name="SlotType" type="long" />
+        </struct>
+        <struct name="UserBasicInfo">
+            <item name="NickName" type="string" />
+            <item name="Gender" type="int" />
+            <item name="Icon" type="string" />
+            <item name="AvatarId" type="string" attribute="optional" />
+            <item name="SlotInfos" type="SlotInfo" attribute="repeated" />
+        </struct>
+        <struct name="ResourceInfo">
+            <item name="ResourceId" type="string" />
+            <item name="ResourceFileSize" type="int" />
+        </struct>
+        <struct name="SessionKeyModel">
+            <item name="SessionKey" type="string" />
+            <item name="UploadUrl" type="string" />
+        </struct>
+        <struct name="BindThirdInfo">
+            <!--
+            bindType 4 QQ登录   5 微信登录   6新浪微博
+            -->
+            <item name="moniToken" type="string" />
+            <item name="BindType" type="int" />
+            <item name="OpenId" type="string" />
+            <item name="ThirdToken" type="string" />
+        </struct>
+        <struct name="RegisterInfo">
+            <item name="Phone" type="string" />
+            <item name="Password" type="string" />
+            <item name="Code" type="string" />
+            <item name="Platform" type="int" />
+            <item name="PlatformDesc" type="string" />
+            <item name="InvitationCode" type="string" attribute="optional" />
+        </struct>
+    </types>
+    <module name="UserRegister" id="21000">
+        <Client>
+            <!--
+            USER_REGISTER_HAD_REGISTER(201,"手机号已注册",VWModule.USER_REGISTER),
+			USER_REGISTER_PARAMS_ERROR(202,"参数错误",VWModule.USER_REGISTER),
+			USER_REGISTER_SEND_IN_COOL(161, "发送冷却中", VWModule.USER_REGISTER),
+            -->
+            <method name="SendVerificationCode" type="request" http="1" id="1001">
+                <!--
+                发送验证码业务类型   详情查看枚举类EnumSendType
+                -->
+                <item name="VerificationCodeType" type="VerificationCodeType" />
+                <item name="Phone" type="string" />
+                <!--
+                下次发送验证码剩余的冷却时间，单位秒，0表示本次发送成功
+                -->
+                <item name="RemainSeconds" type="int" out="1" />
+            </method>
+            <!--
+            USER_REGISTER_CODE_ERROR(203,"验证码错误",VWModule.USER_REGISTER),
+				USER_REGISTER_INVICATION_ERROR(204,"邀请码错码",VWModule.USER_REGISTER),
+            -->
+            <method name="RegisterUser" type="request" http="1" id="1002">
+                <item name="RegisterInfo" type="RegisterInfo" />
+                <item name="MoniId" type="long" out="1" />
+                <item name="Token" type="string" out="1" />
+            </method>
+            <!--
+            USER_REGISTER_PARAMS_ERROR(202,"参数错误",VWModule.USER_REGISTER),
+			USER_REGISTER_HAD_COMPLETE(205,"注册已完成",VWModule.USER_REGISTER),
+			USER_REGISTER_INIT_USER_FAILED(170,"初始化用户基本数据失败",VWModule.USER_REGISTER)
+			USER_REGISTER_HAIR_ITEMID_NOT_EXIST(171,"在UserInit配置中未找到头发的itemID",VWModule.USER_REGISTER)
+            -->
+            <method name="SetUserBasicInfo" type="request" http="1" id="1003">
+                <item name="UserBasicInfo" type="UserBasicInfo" />
+            </method>
+            <!--
+            USER_REGISTER_PARAMS_ERROR(202,"参数错误",VWModule.USER_REGISTER),
+            -->
+            <method name="GetSessionKey" type="request" http="1" id="1004">
+                <item name="ResourceInfo" type="ResourceInfo" attribute="repeated" />
+                <item name="SessionKeyModel" type="SessionKeyModel" out="1" />
+            </method>
+            <!--
+            USER_REGISTER_TOKEN_EXPIRED(128, "第三方Token已过期", VWModule.USER_REGISTER),
+			USER_REGISTER_HAD_BIND_ACCOUNT(127, "当前账号已经绑定过第三方", VWModule.USER_REGISTER),
+			USER_REGISTER_PARAMS_ERROR(202,"参数错误",VWModule.USER_REGISTER),
+            -->
+            <method name="BindThirdParty" type="request" http="1" id="1005">
+                <item name="BindThirdInfo" type="BindThirdInfo" />
+            </method>
+            <method name="ChangePassword" type="request" http="1" id="1006">
+                <item name="Cellphone" type="string" />
+                <item name="VerificationCode" type="string" />
+                <item name="NewPassword" type="string" />
+            </method>
+            <!--
+            USER_REGISTER_MAIL_HAD_SEND(206,"邮件已发送",VWModule.USER_REGISTER),
+			USER_REGISTER_PARAMS_ERROR(202,"参数错误",VWModule.USER_REGISTER),
+			USER_REGISTER_HAD_SET_MAIL(156, "该用户已经设置过mail", VWModule.USER_REGISTER),
+			USER_REGISTER_MAIL_IS_EXIST(160, "绑定的邮箱已经存在", VWModule.USER_REGISTER),
+            -->
+            <method name="BindMail" type="request" http="1" id="1007">
+                <item name="Mail" type="string" />
+            </method>
+            <!--
+            USER_REGISTER_PARAMS_ERROR(202,"参数错误",VWModule.USER_REGISTER),
+            -->
+            <method name="CheckUserByPhone" type="request" http="1" id="1008">
+                <item name="Phone" type="string" />
+                <item name="IsExist" type="bool" out="1" />
+            </method>
+            <method name="GetBoundThirdParty" type="request" http="1" id="1009">
+                <item name="ThirdPartyType" type="string" out="1" attribute="optional" />
+                <item name="BoundDate" type="long" out="1" attribute="optional" />
+            </method>
+            <!--
+            USER_REGISTER_PARAMS_ERROR(202,"参数错误",VWModule.USER_REGISTER),
+            	USER_LOGIN_ACCOUNT_BANNED(301, "账号被禁用", VWModule.USER_REGISTER),
+				USER_LOGIN_INFO_ERROR(302, "用户不存在或密码错误", VWModule.USER_SEND_MSG),
+				USER_REGISTER_NOT_CREATOR(172,"用户不是创造者"
+            -->
+            <method name="UserLogin" type="request" http="1" id="1010">
+                <!--
+                loginType 2 手机密码   4 QQ登录   5 微信登录   6新浪微博  7 手机验证码
+                -->
+                <item name="LoginType" type="int" required="1" />
+                <item name="UserName" type="string" required="1" />
+                <item name="Password" type="string" required="1" />
+                <item name="Product" type="int" required="1" />
+                <item name="Platform" type="int" required="1" />
+                <item name="PlatformDesc" type="string" />
+                <item name="Token" type="string" out="1" />
+                <item name="MoniID" type="long" out="1" />
+            </method>
+            <method name="GetUserBasicInfo" type="request" http="1" id="1011">
+                <item name="UserBasicInfo" type="UserBasicInfo" attribute="optional" out="1" />
+            </method>
+            <!--
+            第三方注册
+                USER_REGISTER_CODE_ERROR(203,"验证码错误",VWModule.USER_REGISTER),
+				USER_REGISTER_INVICATION_ERROR(204,"邀请码错码",VWModule.USER_REGISTER),
+				USER_REGISTER_TOKEN_EXPIRED(128, "第三方Token已过期", VWModule.USER_REGISTER),
+				USER_REGISTER_HAD_BIND_ACCOUNT(127, "当前账号已经绑定过第三方", VWModule.USER_REGISTER),
+				USER_REGISTER_PARAMS_ERROR(202,"参数错误",VWModule.USER_REGISTER),
+            -->
+            <method name="ThirdPartyRegister" type="request" http="1" id="1012">
+                <item name="OpenId" type="string" />
+                <item name="ThirdPartyToken" type="string" />
+                <item name="BindType" type="int" />
+                <item name="RegisterInfo" type="RegisterInfo" />
+                <item name="MoniId" type="long" out="1" />
+                <item name="Token" type="string" out="1" />
+            </method>
+        </Client>
+        <Notification>
+            <notify name="BindMailSuccess" businessType="Mail" id="1">
+                <item name="UserId" type="long" attribute="required" />
+                <item name="Email" type="string" />
+            </notify>
+        </Notification>
+        <Server />
+    </module>
+</root>

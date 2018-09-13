@@ -1,0 +1,23 @@
+<div class="httpCommandXmlPanel" [class.active]="active">
+    <div class="tabMenu">
+        <ul >
+            <li *ngFor="let menu of getMenuList3()" [class.active]="menu.active" >
+                <a (click)="routePanel3(menu.key)" href="javascript:void(0)">{{menu.text}}</a>
+            </li>
+        </ul>
+        <div class="version" >
+            <select [ngModel]="currVersion" class="list" (ngModelChange)="currVersion=$event;updateVersion()">
+                <option *ngFor="let item of versionList" [value]='item'>{{item}}</option>
+            </select>
+            <a href="javascript:void(0)" class="addVersion" (click)="addVersion()">新增版本</a>
+        </div>
+    </div>
+    <div class="tabPanel">
+         <vwvo-xmlMakerForFu-bridgeCommandXml [active]="menuListObj.bridgeCommandXml.active"></vwvo-xmlMakerForFu-bridgeCommandXml>
+         <vwvo-xmlMakerForFu-jobsXml [active]="menuListObj.jobsXml.active"></vwvo-xmlMakerForFu-jobsXml>
+         <vwvo-xmlMakerForFu-taskXml [active]="menuListObj.taskXml.active"></vwvo-xmlMakerForFu-taskXml>
+         <vwvo-xmlMakerForFu-wolverineEventXml [active]="menuListObj.wolverineEventXml.active"></vwvo-xmlMakerForFu-wolverineEventXml>
+         <vwvo-xmlMakerForFu-wolverineModuleXml [active]="menuListObj.wolverineModuleXml.active"></vwvo-xmlMakerForFu-wolverineModuleXml>
+         <vwvo-xmlMakerForFu-wolverineMetaDataXml [active]="menuListObj.wolverineMetaDataXml.active"></vwvo-xmlMakerForFu-wolverineMetaDataXml>
+    </div>
+</div>

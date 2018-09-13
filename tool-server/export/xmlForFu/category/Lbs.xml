@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<imports>
+		<import category="Lbs"/>
+	</imports>
+    <module id="0" name="Fake">
+        <Client />
+        <Server />
+    </module>
+</root>

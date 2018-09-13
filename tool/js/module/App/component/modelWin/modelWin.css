@@ -1,0 +1,49 @@
+.type {
+    color: #0000FF;
+}
+.structType {
+    color: #0000FF;
+}
+.enumType {
+    color: #A3152A;
+}
+.structName {
+    color: #2B91AF;
+}
+.enumName {
+    color: #2B91AF;
+}
+.csName {
+    color: #2B91AF;
+}
+pre {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+.fun1 {
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+    font-weight: bold;
+}
+.fun {
+    color: #0000FF;
+}
+.str {
+    color: #A3152A;
+}
+.comment {
+    color: #348000;
+}
+.struct {
+    color: #0000FF;
+}
+.cs {
+    color: #0000FF;
+}
+.search {
+    color: red;
+    font-size: 30px;
+}

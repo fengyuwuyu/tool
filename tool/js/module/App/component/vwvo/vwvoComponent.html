@@ -1,0 +1,23 @@
+<div class="httpCommandXmlPanel" [class.active]="active">
+<div class="tabMenu">
+    <ul >
+        <li *ngFor="let menu of getMenuList2()" [class.active]="menu.active" >
+            <a (click)="routePanel2(menu.key)" href="javascript:void(0)">{{menu.text}}</a>
+        </li>
+    </ul>
+    <div class="version" >
+         <select [ngModel]="currVersion" class="list" (ngModelChange)="currVersion=$event;updateVersion()">
+             <option *ngFor="let item of versionList" [value]='item'>{{item}}</option>
+         </select>
+         <a href="javascript:void(0)" class="addVersion" (click)="addVersion()">新增版本</a>
+     </div>
+</div>
+<div class="tabPanel">
+    <vwvo-xmlMakerForFu-moduleXml [active]="menuListObj.moduleXml.active" ></vwvo-xmlMakerForFu-moduleXml>
+    <vwvo-xmlMakerForFu-commandXml [active]="menuListObj.commandXml.active"></vwvo-xmlMakerForFu-commandXml>
+    <vwvo-xmlMakerForFu-httpCommandXml [active]="menuListObj.httpCommandXml.active"></vwvo-xmlMakerForFu-httpCommandXml>
+    <vwvo-xmlMakerForFu-metaDataXml [active]="menuListObj.metaDataXml.active"></vwvo-xmlMakerForFu-metaDataXml>
+    <vwvo-xmlMakerForFu-eventXml [active]="menuListObj.eventXml.active"></vwvo-xmlMakerForFu-eventXml>
+    <vwvo-xmlMakerForFu-recordXml [active]="menuListObj.recordXml.active"></vwvo-xmlMakerForFu-recordXml>
+</div>
+</div>

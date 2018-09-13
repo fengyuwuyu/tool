@@ -1,0 +1,39 @@
+<div class="moduleXmlPanel" [class.active]="active">
+    <div class="leftPanel">
+        <div class="btnGroup">
+            <a href="javascript:void(0)" (click)="createModuleXml()">添加</a>
+            <a href="javascript:void(0)" (click)="editModuleXml()">修改</a>
+            <a href="javascript:void(0)" (click)="removeModuleXml()">删除</a>
+        </div>
+        <div class="searchCommand">
+            <input type="text" id="key" (keydown)="filterLabel()" />
+        </div>
+        <div class="list" >
+            <ul >
+                <li *ngFor="let moduleXml of moduleXmlList"  [class.active]="moduleXml.active" (click)="changeModuleXml(moduleXml)">
+                    {{getModuleXmlBaseInfo(moduleXml).service || getModuleXmlBaseInfo(moduleXml).name}}
+                    <a href={{moduleXml.downloadUrl}} download="{{getModuleXmlBaseInfo(moduleXml).service || getModuleXmlBaseInfo(moduleXml).name}}.xml" target="_blank" class="download">download</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="rightPanel">
+        <div class="prePanel" [class.active]="!editting">
+          <pre class="brush: c-sharp;" id="modleWin" >
+            </pre>
+
+        </div>
+        <div class="formPanel" [class.active]="editting">
+            <div class="textareaPanel">
+                <textarea></textarea>
+            </div>
+            <div class="btnGroup">
+                <a href="javascript:void(0)" (click)="saveModuleXml()" >保存</a>
+                <a href="javascript:void(0)" (click)="cancelEditXml()" >取消</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="scriptDiv">
+
+</div>

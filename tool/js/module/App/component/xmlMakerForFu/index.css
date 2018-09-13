@@ -1,0 +1,338 @@
+.xmlMakerForFu {
+  width: 100%;
+  height: 100%;
+}
+.xmlMakerForFu .tabMenu {
+  width: 100%;
+  height: 40px;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  border-bottom: 1px solid gray;
+  border-box: border-sizing;
+  line-height: 40px;
+}
+.xmlMakerForFu .tabMenu ul {
+  overflow: hidden;
+}
+.xmlMakerForFu .tabMenu li {
+  float: left;
+  margin: 0px 10px;
+  position: relative;
+  left: 0px;
+  top: 0px;
+}
+.xmlMakerForFu .tabMenu li a {
+  display: block;
+  padding: 0px 10px;
+}
+.xmlMakerForFu .tabMenu li.active:after,
+.xmlMakerForFu .tabMenu li:hover:after {
+  content: "";
+  display: block;
+  background: red;
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+}
+.xmlMakerForFu .tabMenu .version {
+  width: 180px;
+  height: 25px;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  float: left;
+}
+.xmlMakerForFu .tabMenu .version .list {
+  width: 80px;
+  height: 25px;
+  float: left;
+  border-radius: 5px;
+}
+.xmlMakerForFu .tabMenu .version .addVersion {
+  width: 80px;
+  float: right;
+  display: block;
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin-right: 15px;
+  color: gray;
+  line-height: 25px;
+  text-align: center;
+  background-image: -webkit-linear-gradient(top, #d9534f 0, #c12e2a 100%);
+  background-image: -o-linear-gradient(top, #d9534f 0, #c12e2a 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#d9534f), to(#c12e2a));
+  background-image: linear-gradient(to bottom, #d9534f 0, #c12e2a 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd9534f', endColorstr='#ffc12e2a', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-repeat: repeat-x;
+  border-color: #b92c28;
+  color: #fff;
+}
+.xmlMakerForFu .tabPanel {
+  width: 100%;
+  height: calc(100% - 40px);
+}
+.xmlMakerForFu .tabPanel .moduleXmlPanel,
+.xmlMakerForFu .tabPanel .recordXmlPanel,
+.xmlMakerForFu .tabPanel .eventXmlPanel,
+.xmlMakerForFu .tabPanel .metaDataXmlPanel,
+.xmlMakerForFu .tabPanel .notificationXmlPanel,
+.xmlMakerForFu .tabPanel .commandXmlPanel,
+.xmlMakerForFu .tabPanel .httpCommandXmlPanel {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: none;
+}
+.xmlMakerForFu .tabPanel .moduleXmlPanel.active,
+.xmlMakerForFu .tabPanel .recordXmlPanel.active,
+.xmlMakerForFu .tabPanel .eventXmlPanel.active,
+.xmlMakerForFu .tabPanel .metaDataXmlPanel.active,
+.xmlMakerForFu .tabPanel .notificationXmlPanel.active,
+.xmlMakerForFu .tabPanel .httpCommandXmlPanel.active,
+.xmlMakerForFu .tabPanel .commandXmlPanel.active {
+  display: block;
+}
+.xmlMakerForFu .tabPanel .leftPanel {
+  width: 20%;
+  height: 100%;
+  float: left;
+  border-right: 1px solid #D5D5D5;
+  box-sizing: border-box;
+  font-size: 1.5rem;
+}
+.xmlMakerForFu .tabPanel .leftPanel .btnGroup {
+  width: 100%;
+  height: 35px;
+  border-bottom: 1px solid #D5D5D5;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.xmlMakerForFu .tabPanel .leftPanel .btnGroup a {
+  width: 30%;
+  height: 34px;
+  margin-left: 2.5%;
+  display: block;
+  float: left;
+  border: 1px solid gray;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 35px;
+  border-radius: 5px;
+}
+.xmlMakerForFu .tabPanel .leftPanel .list {
+  width: 100%;
+  height: calc(100% - 55px);
+  overflow: hidden;
+  overflow-y: auto;
+}
+.xmlMakerForFu .tabPanel .leftPanel .list li {
+  line-height: 35px;
+  height: 35px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1px dashed #D5D5D5;
+  text-indent: 2rem;
+  position: relative;
+  left: 0px;
+  top: 0px;
+}
+.xmlMakerForFu .tabPanel .leftPanel .list li .download {
+  position: absolute;
+  right: 2rem;
+  top: 0px;
+  display: block;
+  color: #81CC86;
+  text-indent: 0px;
+}
+.xmlMakerForFu .tabPanel .leftPanel .list li.active {
+  background: #D5D5D5;
+}
+.xmlMakerForFu .tabPanel .rightPanel {
+  width: 80%;
+  height: 100%;
+  float: left;
+}
+.xmlMakerForFu .tabPanel .rightPanel .prePanel,
+.xmlMakerForFu .tabPanel .rightPanel .formPanel {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #D5D5D5;
+  border-left: 0px;
+  box-sizing: border-box;
+  display: none;
+}
+.xmlMakerForFu .tabPanel .rightPanel .prePanel.active,
+.xmlMakerForFu .tabPanel .rightPanel .formPanel.active {
+  display: block;
+}
+.xmlMakerForFu .tabPanel .rightPanel .prePanel pre {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.xmlMakerForFu .tabPanel .rightPanel .formPanel .textareaPanel {
+  width: 100%;
+  height: calc(100% - 40px);
+}
+.xmlMakerForFu .tabPanel .rightPanel .formPanel .btnGroup {
+  width: 100%;
+  height: 40px;
+  border-top: 1px solid gray;
+  box-sizing: border-box;
+  text-align: center;
+}
+.xmlMakerForFu .tabPanel .rightPanel .formPanel .btnGroup a {
+  display: inline-block;
+  width: 150px;
+  height: 39px;
+  border: 1px solid gray;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 39px;
+  border-radius: 5px;
+}
+.xmlMakerForFu .tabPanel .rightPanel .formPanel textarea {
+  -webkit-appearance: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  border: 0px;
+  min-width: 100%;
+  min-height: 100%;
+}
+.xmlMakerForFu .tabPanel .rightPanel .formPanel textarea,
+.xmlMakerForFu .tabPanel .rightPanel .prePanel pre {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.xmlMakerForFu .tabPanel pre .struct,
+.xmlMakerForFu .tabPanel pre .enum,
+.xmlMakerForFu .tabPanel pre .cs,
+.xmlMakerForFu .tabPanel pre .fun,
+.xmlMakerForFu .tabPanel pre .structType,
+.xmlMakerForFu .tabPanel pre .type {
+  color: #0000FF;
+}
+.xmlMakerForFu .tabPanel pre .enumType, .attribute {
+  color: #A3152A;
+}
+.xmlMakerForFu .tabPanel pre .structName,
+.xmlMakerForFu .tabPanel pre .enumName,
+.xmlMakerForFu .tabPanel pre .csName {
+  color: #2B91AF;
+}
+.xmlMakerForFu .tabPanel pre .str {
+  color: #A3152A;
+}
+.xmlMakerForFu .tabPanel pre .comment {
+  color: #348000;
+}
+.xmlMakerForFu .CodeMirror {
+  height: 100%;
+  font-size: 1.8rem;
+  border: 1px solid #ddd;
+}
+.xmlMakerForFu .CodeMirror pre {
+  padding-left: 7px;
+  line-height: 1.25;
+}
+.xmlMakerForFu .eventXmlPanel .CodeMirror {
+  height: calc(100%);
+}
+
+.xmlMakerForFu .tabPanel pre .fun1 {
+  font-size: 1.8rem;
+  line-height: 2.5rem;
+  font-weight: bold;
+}
+
+/*sidebar*/
+.sidebar{
+  width: 100%;
+  height: calc(100% - 35px);
+  font-size: 1.5rem;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+
+.sidebar ul {
+  overflow: hidden;
+}
+.sidebar li {
+  /*float: left;*/
+  margin: 0px 10px;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  /*border-bottom: 1px dashed #D5D5D5;*/
+}
+.sidebar li a {
+  display: block;
+  padding: 0px 10px;
+}
+.sidebar li.active:after,
+.sidebar li:hover:after {
+  content: "";
+  display: block;
+  /*background: red;*/
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+}
+
+.title{
+  width: 95%;
+  line-height: 32px;
+  cursor: pointer;
+}
+.title > span{
+  margin-left: 10px;
+}
+/*in-sidebar*/
+.in-sidebar{
+  width: 100%;
+  display: none;
+}
+.in-sidebar > li{
+  width: 100%;
+  height: 32px;
+  line-height: 32px;
+  margin-left: 50px;
+}
+
+.in-sidebar > li a{
+  position: absolute;
+  right: 5rem;
+  top: 0px;
+  display: block;
+  color: #81CC86;
+  text-indent: 0px;
+}
+
+#UnknownCategory {
+  color: red;
+}
+
+.search {
+  color: red;
+}
+
+.searchCommand input {
+  width:300px;
+  border:1px solid #B3D6EF;
+  background:#ffffff;
+  margin-left: 30px;
+  font-size: 18px;
+  star : expression(
+    onmouseover=function(){this.style.backgroundColor="#D5E9F6"},
+    onmouseout=function(){this.style.backgroundColor="#ffffff"})
+}

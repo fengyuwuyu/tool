@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <types>
+        <enum name="BindType">
+            <eitem name="Qq" value="1" />
+            <eitem name="Wechat" value="2" />
+            <eitem name="Weibo" value="3" />
+        </enum>
+        <struct name="AuthDevUserMsg">
+            <item name="AdminID" type="string" />
+            <item name="MoniID" type="long" />
+            <item name="AuthenticationID" type="string" />
+            <!--
+            1/0 yes/no
+            -->
+            <item name="Pass" type="int" />
+            <item name="Note" type="string" attribute="optional" />
+        </struct>
+        <struct name="AuthRealNameUserMsg">
+            <item name="AdminID" type="string" />
+            <item name="MoniID" type="long" />
+            <item name="AuthenticationID" type="string" />
+            <!--
+            1/0 yes/no
+            -->
+            <item name="Pass" type="int" />
+            <item name="Note" type="string" attribute="optional" />
+        </struct>
+        <struct name="SubmitDevUserAuthMsg">
+            <item name="MoniID" type="long" />
+            <item name="Mail" type="string" />
+            <item name="Note" type="string" attribute="optional" />
+        </struct>
+        <struct name="DevUserAuthMsg">
+            <item name="MoniID" type="long" />
+            <item name="AdminID" type="string" attribute="optional" />
+            <item name="AuthenticationID" type="string" />
+            <item name="Mail" type="string" />
+            <item name="Status" type="int" />
+            <item name="Note" type="string" attribute="optional" />
+            <item name="CreateDate" type="long" />
+            <item name="AuthenticateDate" type="long" attribute="optional" />
+        </struct>
+        <struct name="PagedDevUserAuthMsg">
+            <item name="AdminID" type="string" attribute="optional" />
+            <item name="Total" type="int" />
+            <item name="PageNumber" type="int" />
+            <item name="PageSize" type="int" />
+            <item name="DevUserAuthMsg" type="DevUserAuthMsg" attribute="repeated" />
+        </struct>
+        <struct name="SubmitRealNameUserAuthMsg">
+            <item name="MoniID" type="long" />
+            <item name="IdCardBackPhoto" type="string" />
+            <item name="IdCardFrontPhoto" type="string" />
+            <item name="IdNumber" type="string" />
+            <item name="RealName" type="string" />
+            <item name="Note" type="string" attribute="optional" />
+        </struct>
+        <struct name="RealNameUserAuthMsg">
+            <item name="MoniID" type="long" />
+            <item name="AdminID" type="string" attribute="optional" />
+            <item name="AuthenticationID" type="string" />
+            <item name="IdCardBackPhoto" type="string" />
+            <item name="IdCardFrontPhoto" type="string" />
+            <item name="IdNumber" type="string" />
+            <item name="RealName" type="string" />
+            <item name="Status" type="int" />
+            <item name="Note" type="string" attribute="optional" />
+            <item name="CreateDate" type="long" />
+            <item name="AuthenticateDate" type="long" attribute="optional" />
+        </struct>
+        <struct name="PagedRealNameUserAuthMsg">
+            <item name="AdminID" type="string" attribute="optional" />
+            <item name="Total" type="int" />
+            <item name="PageNumber" type="int" />
+            <item name="PageSize" type="int" />
+            <item name="RealNameUserAuthMsg" type="RealNameUserAuthMsg" attribute="repeated" />
+        </struct>
+        <struct name="UpdateUserMsg">
+            <item name="MoniID" type="long" />
+            <item name="NickName" type="string" attribute="optional" />
+            <item name="Gender" type="int" attribute="optional" />
+            <item name="Grade" type="string" attribute="optional" />
+            <item name="IconID" type="string" attribute="optional" />
+            <item name="Mail" type="string" attribute="optional" />
+            <!--
+            item name="Phone" type="string" attribute="optional" /
+            -->
+            <item name="School" type="string" attribute="optional" />
+            <!--
+            新增
+            -->
+            <item name="Birthday" type="string" attribute="optional" />
+            <item name="BloodType" type="string" attribute="optional" />
+            <item name="Hometown" type="string" attribute="optional" />
+            <item name="Residence" type="string" attribute="optional" />
+            <item name="Hobby" type="string" attribute="optional" />
+            <item name="Occupation" type="string" attribute="optional" />
+            <item name="Signature" type="string" attribute="optional" />
+        </struct>
+        <struct name="RegisterUserMsg">
+            <item name="MoniID" type="long" />
+            <item name="Password" type="string" />
+            <item name="Phone" type="string" />
+            <item name="NickName" type="string" attribute="optional" />
+            <item name="Gender" type="int" attribute="optional" />
+            <item name="Grade" type="string" attribute="optional" />
+            <item name="IconID" type="string" attribute="optional" />
+            <item name="Mail" type="string" attribute="optional" />
+            <item name="School" type="string" attribute="optional" />
+        </struct>
+        <struct name="AuditUserMsg">
+            <item name="MoniID" type="long" />
+            <item name="Roll" type="int" />
+        </struct>
+        <struct name="UserBasicAccountInfo">
+            <item name="MoniID" type="long" />
+            <item name="AvatarID" type="string" attribute="optional" />
+            <item name="NickName" type="string" attribute="optional" />
+            <item name="Role" type="int" />
+            <item name="Gender" type="int" attribute="optional" />
+            <item name="Grade" type="string" attribute="optional" />
+            <item name="IconID" type="string" attribute="optional" />
+            <item name="Mail" type="string" attribute="optional" />
+            <item name="Phone" type="string" attribute="optional" />
+            <item name="School" type="string" attribute="optional" />
+            <item name="ThirdPartyID" type="string" attribute="optional" />
+            <item name="ThirdPartyIDType" type="string" attribute="optional" />
+            <item name="CreateDate" type="long" />
+            <item name="LastLoginDate" type="long" attribute="optional" />
+            <!--
+            yyyy/mm/dd
+            -->
+            <item name="Birthday" type="string" id="15" attribute="optional" />
+            <!--
+            A/B/AB/O
+            -->
+            <item name="BloodType" type="string" id="16" attribute="optional" />
+            <item name="Hometown" type="string" id="17" attribute="optional" />
+            <item name="Residence" type="string" id="18" attribute="optional" />
+            <item name="Hobby" type="string" id="19" attribute="optional" />
+            <item name="Occupation" type="string" id="20" attribute="optional" />
+            <item name="Signature" type="string" id="21" attribute="optional" />
+            <item name="InviterID" type="long" id="22" attribute="optional" />
+        </struct>
+        <struct name="BindThirdPartyAppIDMsg">
+            <item name="MoniID" type="long" />
+            <item name="BindType" type="BindType" />
+            <item name="AppID" type="string" />
+        </struct>
+        <struct name="SimpleUserInfo">
+            <item name="MoniID" type="long" />
+            <item name="Token" type="string" attribute="optional" />
+            <item name="phone" type="string" attribute="optional" />
+            <item name="password" type="string" attribute="optional" />
+        </struct>
+        <struct name="PagedSimpleUserInfo">
+            <item name="SimpleUserInfo" type="SimpleUserInfo" attribute="repeated" />
+            <item name="Total" type="long" />
+        </struct>
+    </types>
+    <module id="20000" name="DaoUser">
+        <Client>
+            <!--
+            ERROR: VWError.UNKNOWN_ERROR
+            VWError.DAO_USER_MONIID_NOT_EXIST
+            -->
+            <method name="CheckUserPermission" type="request" id="20601">
+                <item name="MoniID" type="long" />
+                <item name="Permissions" type="int" attribute="repeated" out="1" />
+            </method>
+            <!--
+            ERROR: VWError.UNKNOWN_ERROR
+            VWError.DAO_USER_DUPLICATED_APPID
+            VWError.DAO_USER_DUPLICATED_REQUEST
+            VWError.DAO_USER_MONIID_NOT_EXIST
+            -->
+            <method name="BindThirdPartyAppID" type="request" id="20001">
+                <item name="BindThirdPartyAppIDMsg" type="BindThirdPartyAppIDMsg" />
+            </method>
+            <!--
+            ERROR: VWError.UNKNOWN_ERROR
+            -->
+            <method name="GetDevUserAuth" type="request" id="20002">
+                <item name="MoniID" type="long" />
+                <item name="DevUserAuthMsg" type="DevUserAuthMsg" out="1" attribute="repeated" />
+            </method>
+            <!--
+            ERROR: VWError.UNKNOWN_ERROR
+            -->
+            <method name="GetDevUserAuthList" type="request" id="20003">
+                <item name="AdminID" type="string" />
+                <item name="PageNumber" type="int" />
+                <item name="PageSize" type="int" />
+                <item name="PagedDevUserAuthMsg" type="PagedDevUserAuthMsg" out="1" />
+            </method>
+            <!--
+            ERROR: VWError.UNKNOWN_ERROR
+            VWError.DAO_USER_MONIID_NOT_EXIST
+            -->
+            <method name="AuthDevUser" type="request" id="20004">
+                <item name="AuthDevUserMsg" type="AuthDevUserMsg" />
+            </method>
+            <!--
+            ERROR: VWError.UNKNOWN_ERROR
+            -->
+            <method name="GetRealNameUserAuth" type="request" id="20005">
+                <item name="MoniID" type="long" />
+                <item name="RealNameUserAuthMsg" type="RealNameUserAuthMsg" out="1" attribute="repeated" />
+            </method>
+            <!--
+            ERROR: VWError.UNKNOWN_ERROR
+            -->
+            <method name="GetRealNameUserAuthList" type="request" id="20006">
+                <item name="AdminID" type="string" />
+                <item name="PageNumber" type="int" />
+                <item name="PageSize" type="int" />
+                <item name="PagedRealNameUserAuthMsg" type="PagedRealNameUserAuthMsg" out="1" />
+            </method>
+            <!--
+            ERROR: VWError.UNKNOWN_ERROR
+            VWError.DAO_USER_MONIID_NOT_EXIST
+            -->
+            <method name="AuthRealNameUser" type="request" id="20007">
+                <item name="AuthRealNameUserMsg" type="AuthRealNameUserMsg" />
+            </method>
+            <!--
+            ERROR: VWError.UNKNOWN_ERROR
+            -->
+            <method name="SubmitRealNameUserAuth" type="request" id="20008">
+                <item name="SubmitRealNameUserAuthMsg" type="SubmitRealNameUserAuthMsg" />
+                <item name="RealNameUserAuthMsg" type="RealNameUserAuthMsg" out="1" />
+            </method>
+            <!--
+            ERROR: VWError.UNKNOWN_ERROR
+            -->
+            <method name="SubmitDevUserAuth" type="request" id="20009">
+                <item name="SubmitDevUserAuthMsg" type="SubmitDevUserAuthMsg" />
+                <item name="DevUserAuthMsg" type="DevUserAuthMsg" out="1" />
+            </method>
+            <!--
+            ERROR: VWError.DAO_USER_MONIID_NOT_EXIST
+            ERROR: VWError.UNKNOWN_ERROR
+            -->
+            <method name="GetUserBasicAccountInfo" type="request" id="20010">
+                <!--
+                item
+					name 参数名
+					type 参数类型。基本类型有 bool bytes byte double float int16 int long string
+					attribute 属性。可选 repeated, single。默认single
+					out 是否为输出参数(response中的参数)。1为真，默认0
+                -->
+                <item name="MoniID" type="long" />
+                <item name="FieldMasks" type="long" attribute="optional" />
+                <item name="UserBasicAccountInfo" type="UserBasicAccountInfo" out="1" />
+            </method>
+            <!--
+            ERROR: VWError.UNKNOWN_ERROR
+            -->
+            <method name="GetUserBasicAccountInfoList" type="request" id="20011">
+                <item name="MoniID" type="long" attribute="repeated" />
+                <item name="FieldMasks" type="long" attribute="optional" />
+                <item name="UserBasicAccountInfo" type="UserBasicAccountInfo" out="1" attribute="repeated" />
+            </method>
+            <!--
+            ERROR: VWError.DAO_USER_MONIID_NOT_EXIST
+             ERROR: VWError.UNKNOWN_ERROR
+            -->
+            <method name="UpdateUserBasicAccountInfo" type="request" id="20012">
+                <item name="MoniID" type="long" />
+                <item name="Grade" type="string" />
+                <item name="NickName" type="string" />
+                <item name="UserBasicAccountInfo" type="UserBasicAccountInfo" out="1" />
+            </method>
+            <!--
+            ERROR: VWError.DAO_USER_MONIID_NOT_EXIST
+            ERROR: VWError.UNKNOWN_ERROR
+            -->
+            <method name="UpdateUserIcon" type="request" id="20100">
+                <item name="MoniID" type="long" />
+                <item name="IconID" type="string" />
+                <item name="UserBasicAccountInfo" type="UserBasicAccountInfo" out="1" />
+            </method>
+            <!--
+            ERROR: VWError.DAO_USER_THIRD_PARTY_ID_NOT_EXIST
+            ERROR: VWError.DAO_USER_ACCOUNT_NOT_EXIST
+            ERROR: VWError.DAO_USER_USER_BLOCKED
+            ERROR: VWError.DAO_USER_WRONG_PASSWORD
+            ERROR: VWError.UNKNOWN_ERROR
+            ERROR: VWError.DAO_USER_REGISTER_NOT_COMPLETED;
+            ====此接口已被废弃，参考CheckUserByPhone和CheckUserByThirdPartyID，不再有token返回，参考DaoLogin中的接口
+            -->
+            <method name="Login" type="request" id="20200">
+                <!--
+                1: moniID+passwd 2：token 3：weixin 4: qq 5：weibo
+                -->
+                <item name="LoginType" type="int" />
+                <!--
+                1: moniID 2：token 3：weixin-token 4: qq-token 5：weibo-token
+                -->
+                <item name="UserName" type="string" />
+                <item name="Password" type="string" />
+            </method>
+            <!--
+            VWError.DAO_USER_WRONG_PASSWORD
+            VWError.DAO_USER_ACCOUNT_NOT_EXIST
+            VWError.UNKNOWN_ERROR
+            -->
+            <method name="CheckUserByPhone" type="request" id="20201">
+                <item name="Phone" type="string" />
+                <item name="Password" type="string" />
+                <item name="UserBasicAccountInfo" type="UserBasicAccountInfo" out="1" />
+            </method>
+            <!--
+            VWError.DAO_USER_THIRD_PARTY_ID_NOT_EXIST
+            VWError.UNKNOWN_ERROR
+            -->
+            <method name="CheckUserByThirdPartyID" type="request" id="20202">
+                <item name="ThirdPartyID" type="string" />
+                <item name="BindType" type="BindType" />
+                <item name="UserBasicAccountInfo" type="UserBasicAccountInfo" out="1" />
+            </method>
+            <!--
+            VWError.DAO_USER_ACCOUNT_NOT_EXIST
+            VWError.UNKNOWN_ERROR
+            -->
+            <method name="Logout" type="request" id="20203">
+                <item name="MoniID" type="long" />
+            </method>
+            <!--
+            VWError.DAO_USER_ACCOUNT_NOT_EXIST
+            VWError.UNKNOWN_ERROR
+            -->
+            <method name="UpdateUserInfo" type="request" id="20204">
+                <item name="UpdateUserMsg" type="UpdateUserMsg" />
+                <item name="UserBasicAccountInfo" type="UserBasicAccountInfo" out="1" />
+            </method>
+            <!--
+            VWError.DAO_USER_DUPLICATED_MONIID
+            VWError.DAO_USER_DUPLICATED_PHONE
+            VWError.UNKNOWN_ERROR
+            -->
+            <method name="Register" type="request" id="20300">
+                <item name="RegisterUserMsg" type="RegisterUserMsg" />
+            </method>
+            <!--
+            VWError.DAO_USER_ACCOUNT_NOT_EXIST
+            VWError.UNKNOWN_ERROR
+            -->
+            <method name="GetUserByPhone" type="request" id="20302">
+                <item name="Phone" type="string" />
+                <item name="UserBasicAccountInfo" type="UserBasicAccountInfo" out="1" />
+            </method>
+            <!--
+            VWError.DAO_USER_ACCOUNT_NOT_EXIST
+            VWError.DAO_USER_AVATARID_BINDED
+            VWError.UNKNOWN_ERROR
+            -->
+            <method name="AddAvatarID" type="request" id="20303">
+                <item name="MoniID" type="long" />
+                <item name="AvatarID" type="string" />
+            </method>
+            <!--
+            根据moniID删除用户
+			ERROR:DAO_USER_MONIID_NOT_EXIST
+            -->
+            <method name="DeleteUser" type="request" id="20304">
+                <item name="MoniID" type="long" />
+            </method>
+            <!--
+            根据moniID解除第三方绑定
+			ERROR:UNKNOWN_ERROR
+            -->
+            <method name="ClearThirdPartyBindByMoniID" type="request" id="20401">
+                <item name="MoniID" type="long" />
+            </method>
+            <!--
+            ERROR:VWError.UNKNOWN_ERROR
+            ERROR:VWError.DAO_USER_ACCOUNT_NOT_EXIST
+            -->
+            <method name="UpdateUserPasswd" type="request" id="20402">
+                <item name="Phone" type="string" />
+                <item name="Passwd" type="string" />
+                <item name="MoniID" type="long" out="1" />
+            </method>
+            <!--
+            ERROR:UNKNOWN_ERROR
+            ERROR:DAO_USER_ACCOUNT_NOT_EXIST
+            -->
+            <method name="UpdateUserEmail" type="request" id="20403">
+                <item name="Phone" type="string" />
+                <item name="Email" type="string" />
+                <item name="UserBasicAccountInfo" type="UserBasicAccountInfo" out="1" />
+            </method>
+            <!--
+            ERROR:UNKNOWN_ERROR
+            -->
+            <method name="GetSimpleUserInfo" type="request" id="20404">
+                <item name="PageNumber" type="int" />
+                <item name="PageSize" type="int" />
+                <item name="PagedSimpleUserInfo" type="PagedSimpleUserInfo" out="1" />
+            </method>
+            <!--
+            ERROR:UNKNOWN_ERROR
+            -->
+            <method name="GetDevUserAuthListByStatus" type="request" id="20500">
+                <item name="AdminID" type="string" />
+                <item name="Status" type="int" />
+                <item name="PageNumber" type="int" />
+                <item name="PageSize" type="int" />
+                <item name="PagedDevUserAuthMsg" type="PagedDevUserAuthMsg" out="1" />
+            </method>
+            <!--
+            ERROR:UNKNOWN_ERROR
+            -->
+            <method name="GetRealNameUserAuthListByStatus" type="request" id="20501">
+                <item name="AdminID" type="string" />
+                <item name="Status" type="int" />
+                <item name="PageNumber" type="int" />
+                <item name="PageSize" type="int" />
+                <item name="PagedRealNameUserAuthMsg" type="PagedRealNameUserAuthMsg" out="1" />
+            </method>
+            <!--
+            ERROR:UNKNOWN_ERROR
+            -->
+            <method name="GetUnAuthedDevUserAuthList" type="request" id="20502">
+                <item name="AdminID" type="string" />
+                <item name="CreateDate" type="long" />
+                <item name="PageNumber" type="int" />
+                <item name="PageSize" type="int" />
+                <item name="PagedDevUserAuthMsg" type="PagedDevUserAuthMsg" out="1" />
+            </method>
+            <!--
+            ERROR:UNKNOWN_ERROR
+            -->
+            <method name="GetUnAuthedRealNameUserAuthList" type="request" id="20503">
+                <item name="AdminID" type="string" />
+                <item name="CreateDate" type="long" />
+                <item name="PageNumber" type="int" />
+                <item name="PageSize" type="int" />
+                <item name="PagedRealNameUserAuthMsg" type="PagedRealNameUserAuthMsg" out="1" />
+            </method>
+            <!--
+            ERROR:UNKNOWN_ERROR
+            ERROR:VWError.DAO_USER_MONIID_NOT_EXIST
+            -->
+            <method name="UpdateUserRole" type="request" id="20504">
+                <item name="AdminID" type="string" />
+                <item name="MoniID" type="long" />
+                <item name="Role" type="int" />
+                <item name="UserBasicAccountInfo" type="UserBasicAccountInfo" out="1" />
+            </method>
+            <!--
+            VWError.DAO_USER_ACCOUNT_NOT_EXIST
+			ERROR:UNKNOWN_ERROR
+            -->
+            <method name="GetUserByMail" type="request" id="20505">
+                <item name="mail" type="string" />
+                <item name="UserBasicAccountInfo" type="UserBasicAccountInfo" out="1" />
+            </method>
+            <method name="ClearBindMailByMail" type="request" id="20506">
+                <item name="mail" type="string" />
+            </method>
+        </Client>
+        <Server>
+            <method name="RegisterUser" type="publish" id="29000">
+                <item name="MoniID" type="long" />
+                <item name="AvatarID" type="string" />
+            </method>
+        </Server>
+    </module>
+</root>

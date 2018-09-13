@@ -1,0 +1,38 @@
+<div class="httpCommandXmlPanel" [class.active]="active">
+    <div class="leftPanel">
+        <div class="btnGroup">
+            <a href="javascript:void(0)" (click)="createTaskXml()">添加</a>
+            <a href="javascript:void(0)" (click)="editTaskXml()">修改</a>
+            <a href="javascript:void(0)" (click)="removeTaskXml()">删除</a>
+        </div>
+        <div class="searchCommand">
+            <input type="text" id="key" (keydown)="filterLabel()" />
+        </div>
+        <div class="list" >
+            <ul >
+                <li *ngFor="let taskXml of taskXmlList"  [class.active]="taskXml.active" (click)="changeTaskXml(taskXml)">
+                    {{getTaskXmlBaseInfo(taskXml).service || getTaskXmlBaseInfo(taskXml).name}}
+                    <a href={{taskXml.downloadUrl}} download="{{getTaskXmlBaseInfo(taskXml).service || getTaskXmlBaseInfo(taskXml).name}}.xml" target="_blank" class="download">download</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="rightPanel">
+        <div class="prePanel" [class.active]="!editting">
+            <pre id="taskWin" class="brush: c-sharp;">
+            </pre>
+        </div>
+        <div class="formPanel" [class.active]="editting">
+            <div class="textareaPanel">
+                <textarea ></textarea>
+            </div>
+            <div class="btnGroup">
+                <a href="javascript:void(0)" (click)="saveTaskXml()" >保存</a>
+                <a href="javascript:void(0)" (click)="cancelEditXml()" >取消</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="taskDiv">
+
+</div>

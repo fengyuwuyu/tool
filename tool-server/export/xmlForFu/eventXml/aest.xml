@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <imports>
+        <import />
+    </imports>
+    <types />
+    <module id="10" name="aest">
+        <events>
+            <event id="1" name="" type="1" level="INFO" ack="0" />
+        </events>
+    </module>
+</root>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <imports>
+        <import path="Base" />
+    </imports>
+    <!--
+    category类型：Common, User, UserAsset, UserInteraction, Lbs, MoniStore, Dao, 注意大小写
+    -->
+    <types category="User" moduleName="Base1">
+        <struct />
+        <enum />
+    </types>
+</root>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <imports>
+        <import />
+    </imports>
+    <!--
+    category类型：Common, User, UserAsset, UserInteraction, Lbs, MoniStore，注意大小写
+    -->
+    <types category="Common" moduleName="Resource">
+        <struct name="ResourceDependency">
+            <item name="OldResourceDependencyID" type="string" />
+            <item name="NewResourceDependencyID" type="string" />
+        </struct>
+        <struct name="ResourceBasicInfo">
+            <item name="ResourceID" type="string" attribute="required" />
+            <item name="ResourceFileSize" type="int" attribute="required" />
+        </struct>
+        <struct name="ResourceIds">
+            <item name="clientResourceId" type="string" attribute="required" />
+            <item name="serverResourceId" type="string" attribute="required" />
+        </struct>
+        <struct name="ResourceUploadInfo">
+            <item name="ID" type="string" />
+            <item name="ResourceName" type="string" />
+            <item name="ResourceType" type="string" />
+            <item name="ResourceFileSize" type="int" />
+            <item name="ResourceFileHash" type="string" />
+            <item name="ResourceFileID" type="string" attribute="optional" />
+            <item name="ResourceDependencies" type="ResourceDependency" attribute="repeated" />
+            <item name="IconID" type="string" required="0" />
+            <item name="attechInfo" type="bytes" required="0" />
+        </struct>
+        <struct name="ResourceDownloadInfo">
+            <item name="ID" type="string" />
+            <item name="ResourceName" type="string" />
+            <item name="ResourceType" type="string" />
+            <item name="ResourceFileSize" type="int" />
+            <item name="ResourceFileHash" type="string" />
+            <item name="FileUrl" type="string" />
+            <item name="ResourceDependencies" type="ResourceDependency" attribute="repeated" />
+            <item name="IconID" type="string" required="0" />
+            <!--
+            最大值512
+            -->
+            <item name="attechInfo" type="bytes" required="0" />
+        </struct>
+        <enum name="ResourceOrigin">
+            <eitem name="ChatPic" value="1" desc="聊天图片" />
+            <eitem name="Greeting" value="2" desc="部署语音" />
+            <eitem name="UserIcon" value="3" desc="用户头像" />
+            <eitem name="OfficialAppItem" value="4" desc="官方AppItem" />
+            <eitem name="UserAppItem" value="5" desc="用户AppItem" />
+            <eitem name="Face" value="6" desc="脸" />
+            <eitem name="OfficialInstantableItem" value="7" desc="官方道具" />
+            <eitem name="UserInstantableItem" value="8" desc="用户道具" />
+            <eitem name="DyedAppItem" value="9" desc="已染色物品" />
+            <eitem name="BillboardVice" value="10" desc="留言板留言" />
+            <eitem name="ItemMarker" value="11" desc="部署图标" />
+            <eitem name="MoniStoreBanner" value="12" desc="官方商店Banner" />
+            <eitem name="ExchangeCenterBanner" value="13" desc="兑换中心Banner" />
+            <eitem name="ActivityConfig" value="14" desc="活动配置资源" />
+            <eitem name="MissionDescPic" value="15" desc="任务描述图片" />
+            <eitem name="MissionDescVoice" value="16" desc="任务描述语音" />
+            <eitem name="PersonalShopVoice" value="17" desc="个人商店语音" />
+            <eitem name="UserLogCollector" value="18" desc="用户日志" />
+            <eitem name="Special" value="19" desc="特质配置" />
+            <eitem name="BillboardPic" value="20" desc="留言图片" />
+            <eitem name="TopArea" value="21" desc="上传热门区域" />
+            <eitem name="BackStageBackendItem" value="22" desc="后台添加BackendItem" />
+            <eitem name="AdConfig" value="23" desc="任务配置" />
+            <eitem name="SignIn" value="24" desc="签到配置" />
+            <eitem name="UserIDNumber" value="25" desc="用户身份" />
+            <eitem name="UserEventCollector" value="26" desc="用户行为" />
+            <eitem name="BackstageReource" value="27" desc="后台资源上传" />
+        </enum>
+        <enum name="ResourceAccess">
+            <eitem name="Public" value="1" />
+            <eitem name="Private" value="2" />
+            <eitem name="Protected" value="3" />
+        </enum>
+    </types>
+</root>

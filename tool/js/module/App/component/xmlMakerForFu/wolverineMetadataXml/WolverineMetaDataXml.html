@@ -1,0 +1,39 @@
+<div class="metaDataXmlPanel" [class.active]="active">
+    <div class="leftPanel">
+        <div class="btnGroup">
+            <a href="javascript:void(0)" (click)="createMetaDataXml2()">添加</a>
+            <a href="javascript:void(0)" (click)="editMetaDataXml2()">修改</a>
+            <a href="javascript:void(0)" (click)="removeMetaDataXml2()">删除</a>
+        </div>
+        <div class="sidebar">
+            <ul >
+                <li *ngFor="let category of categoryList2" class="title" (click)="titleClickFn2($event)" id="wolverine{{category}}"><span id="wolverine{{category}}">{{category}}</span>
+                    <ul class="in-sidebar">
+                        <li *ngFor="let metadataXml of getMetaDataXmlListByCategory2(category)" id="wolverine{{category}}-{{getMetaDataXmlBaseInfo2(metadataXml).moduleName}}" [class.active]="metadataXml.active" (click)="changeMetaDataXml2(metadataXml)">
+                            {{getMetaDataXmlBaseInfo2(metadataXml).moduleName}}
+                            <a href={{metadataXml.downloadUrl}} download="{{getMetaDataXmlBaseInfo2(metadataXml).moduleName}}.xml" target="_blank" class="download">download</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="rightPanel">
+        <div class="prePanel" [class.active]="!editting">
+            <pre id="wolverineMetaDataWin" class="brush">
+            </pre>
+        </div>
+        <div class="formPanel" [class.active]="editting">
+            <div class="textareaPanel">
+                <textarea ></textarea>
+            </div>
+            <div class="btnGroup">
+                <a href="javascript:void(0)" (click)="saveMetaDataXml()" >保存</a>
+                <a href="javascript:void(0)" (click)="cancelEditXml()" >取消</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="wolverineMetaDataDiv">
+
+</div>

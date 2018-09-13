@@ -1,0 +1,38 @@
+<div class="recordXmlPanel" [class.active]="active">
+    <div class="leftPanel">
+        <div class="btnGroup">
+            <a href="javascript:void(0)" (click)="createRecordXml()">添加</a>
+            <a href="javascript:void(0)" (click)="editRecordXml()">修改</a>
+            <a href="javascript:void(0)" (click)="removeRecordXml()">删除</a>
+        </div>
+        <div class="searchCommand">
+            <input type="text" id="key" (keydown)="filterLabel()" />
+        </div>
+        <div class="list" >
+            <ul >
+                <li *ngFor="let recordXml of recordXmlList"  [class.active]="recordXml.active" (click)="changeRecordXml(recordXml)">
+                    {{getRecordXmlBaseInfo(recordXml).service || getRecordXmlBaseInfo(recordXml).name}}
+                    <a href={{recordXml.downloadUrl}} download="{{getRecordXmlBaseInfo(recordXml).service || getRecordXmlBaseInfo(recordXml).name}}.xml" target="_blank" class="download">download</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="rightPanel">
+        <div class="prePanel" [class.active]="!editting">
+            <pre id="recordWin" class="brush: c-sharp;">
+            </pre>
+        </div>
+        <div class="formPanel" [class.active]="editting">
+            <div class="textareaPanel">
+                <textarea ></textarea>
+            </div>
+            <div class="btnGroup">
+                <a href="javascript:void(0)" (click)="saveRecordXml()" >保存</a>
+                <a href="javascript:void(0)" (click)="cancelEditXml()" >取消</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="recordDiv">
+
+</div>

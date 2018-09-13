@@ -1,0 +1,38 @@
+@import (reference) "../../../../../css/base";
+header {
+    background: #1E1E1E;
+    height: 80px;
+    line-height: 80px;
+    .navbar {
+        .rect(100%, 100%);
+        ul {
+            height: 100%;
+            overflow: hidden;
+        }
+        li {
+            height: 100%;
+            padding: 0px 10px;
+            float: left;
+            a {
+                .position_relative();
+                display: block;
+                color: #A0A0A0;
+                font-size: 1.5rem;
+                &:after {
+                    .position_absolute_bottom(0px, 20px);
+                    content: "1212";
+                    height: 2px;
+                    width: 100%;
+                    background: #fff;
+                    display: none;
+                }
+                &.active, &:hover {
+                    color: #fff;
+                    &:after {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}

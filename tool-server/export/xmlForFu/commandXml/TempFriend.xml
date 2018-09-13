@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <imports>
+        <import category="Common" path="Notification" />
+        <import category="Lbs" path="Base" />
+        <import category="Lbs" path="Marker" />
+        <import category="Lbs" path="TempFriend" />
+    </imports>
+    <types>
+        <struct name="TempFriendInfo">
+            <item name="RequestorId" type="long" />
+            <item name="AcceptorId" type="long" />
+            <item name="CreateDate" type="long" />
+            <item name="ExpireDate" type="long" />
+            <item name="ExpireTime" type="long" />
+        </struct>
+    </types>
+    <module name="TempFriend" id="10051">
+        <Client>
+            <method name="DeployGreetingAvatar" type="request" id="1">
+                <item name="LbsMarker" type="LBSMarkerUserSetting" attribute="required" />
+                <item name="Result" type="LBSMarkerDeployResult" attribute="required" out="1" />
+            </method>
+            <method name="DestroyGreetingAvatar" type="request" id="2">
+                <item name="DeployId" type="string" attribute="required" />
+                <item name="Result" type="LBSMarkerDestroyResult" attribute="required" out="1" />
+            </method>
+            <!--
+            USER_TEMPFRIEND_ALREADY_FRIEND
+USER_TEMPFRIEND_REQUEST_EXPIRED
+USER_TEMPFRIEND_ALREADY_REJECTED
+            -->
+            <method name="AcceptTempFriend" type="request" id="100">
+                <item name="DeployKey" type="LBSMarkerDeployKeyFull" attribute="required" />
+                <item name="CurrentLocation" type="LBSPosition" attribute="optional" />
+                <item name="FriendInfo" type="TempFriendInfo" out="1" />
+            </method>
+            <!--
+            USER_TEMPFRIEND_REQUEST_EXPIRED
+USER_TEMPFRIEND_ALREADY_REJECTED
+            -->
+            <method name="RejectTempFriend" type="request" id="101">
+                <item name="DeployKey" type="LBSMarkerDeployKeyFull" attribute="required" />
+                <item name="CurrentLocation" type="LBSPosition" attribute="optional" />
+            </method>
+            <!--
+            USER_TEMPFRIEND_NOT_FRIEND
+            -->
+            <method name="DeleteTempFriend" type="request" id="102">
+                <item name="UserId" type="long" attribute="required" />
+                <item name="CurrentLocation" type="LBSPosition" attribute="optional" />
+            </method>
+            <method name="GetTempFriendList" type="request" id="103">
+                <item name="TempFriends" type="TempFriendInfo" out="1" attribute="repeated" />
+            </method>
+        </Client>
+        <Server />
+        <Notification>
+            <notify name="FriendAdded" businessType="Message" id="1">
+                <item name="FriendInfo" type="TempFriendInfo" attribute="required" />
+            </notify>
+            <notify name="FriendDeleted" businessType="Message" id="2">
+                <item name="FriendInfo" type="TempFriendInfo" attribute="required" />
+                <item name="Reason" type="TempFriendDeleteReason" attribute="required" />
+            </notify>
+        </Notification>
+    </module>
+</root>

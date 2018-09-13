@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <imports>
+        <import category="Common" path="global.xml" />
+        <import category="Common" />
+    </imports>
+    <types />
+    <module id="10010" name="GateGuard">
+        <Client>
+            <!--
+            password username plaltformdescription 都不得超过64个字节
+			错误码有 VWError.NO_SUCH_USER_OR_PASSWORD_WRONG
+					VWError.TOKEN_OUTDATE
+					VWError.THIRD_TOKEN_OUTDATE
+					VWError.US
+			详情请看java GateGuard的errorCode
+            -->
+            <method name="login" type="request" id="10">
+                <item name="loginType" type="int" private="1" required="1" />
+                <item name="userName" type="string" required="1" />
+                <item name="password" type="string" required="1" />
+                <item name="product" type="int" private="1" required="1" />
+                <item name="platform" type="int" private="1" required="1" />
+                <item name="platformDescription" type="string" required="1" />
+                <item name="ipAddress" type="string" out="1" />
+                <item name="sessionKey" type="bytes" out="1" />
+                <item name="token" type="string" out="1" />
+                <item name="userId" type="long" out="1" />
+            </method>
+            <method name="loginProduct" type="request" id="11">
+                <item name="sessionKey" type="bytes" required="1" />
+                <item name="product" type="int" private="1" required="1" />
+                <item name="ipAddress" type="string" out="1" />
+            </method>
+        </Client>
+        <Server />
+    </module>
+</root>
