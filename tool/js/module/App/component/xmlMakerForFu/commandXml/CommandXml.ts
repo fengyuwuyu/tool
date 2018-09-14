@@ -376,9 +376,9 @@ export class XmlMakerForFuCommandXmlComponent implements OnInit {
         var notifications: any[] = fix2Array(module.Notification ? module.Notification.notify : null);
 
         if(module.__) {
-            html += `${space}<span class="comment" >/*${newLine}`;
-            html += `${space}*${littlerSpace}${module.__}${newLine}`;
-            html += `${space}*/</span>${newLine}`;
+            html += `${space}<span class="comment" >/*${littlerSpace}`;
+            html += `${module.__}${littlerSpace}`;
+            html += `*/</span>${newLine}`;
         }
         html += `${space}moduleName = <span class="str">"${moduleInfo.name}"</span>;${newLine}`;
         html += `${space}moduleId = ${moduleInfo.id};${newLine}${newLine}`;
@@ -420,9 +420,9 @@ export class XmlMakerForFuCommandXmlComponent implements OnInit {
                     throw new Error("添加了broadcast属性到非法位置");
                 }
                 if(obj.__) {
-                    html += `<span class="comment" >${space}/*${newLine}`;
-                    html += `${space}*${littlerSpace}${obj.__}${newLine}`;
-                    html += `${space}*/</span>${newLine}`;
+                    html += `<span class="comment" >${space}/*${littlerSpace}`;
+                    html += `${obj.__}${littlerSpace}`;
+                    html += `*/</span>${newLine}`;
                 }
                 if(+obj._.broadcast) {
                     html += `${space}@Broadcast${newLine}`;
@@ -433,9 +433,9 @@ export class XmlMakerForFuCommandXmlComponent implements OnInit {
                         outputItems.push(iObj);
                     } else {
                         if(iObj.__) {
-                            html += `${space}${space}<span class="comment" >/*${newLine}`;
-                            html += `${space}${space}*${littlerSpace}${iObj.__}${newLine}`;
-                            html += `${space}${space}*/</span>${newLine}`;
+                            html += `${space}${space}<span class="comment" >/*${littlerSpace}`;
+                            html += `${iObj.__}${littlerSpace}`;
+                            html += `*/</span>${newLine}`;
                         }
                         if((iObj._.required &&iObj._.required == '0') || (iObj._.attribute && iObj._.attribute === 'optional')){
                             html += `${space}${space}<span class='type'>optional</span>`+littleSpace;
@@ -454,9 +454,9 @@ export class XmlMakerForFuCommandXmlComponent implements OnInit {
                     html += `${space}${obj._.http?'http'+littleSpace:''}<span class="fun">command</span>${littleSpace}<span class="fun1">${obj._.name}Response</span>${littlerSpace}:${littlerSpace}id(${obj._.id||""})${littlerSpace}{${newLine}`;
                     outputItems.forEach((iObj, iIndex)=> {
                         if(iObj.__) {
-                            html += `${space}${space}<span class="comment" >/*${newLine}`;
-                            html += `${space}${space}*${littlerSpace}${iObj.__}${newLine}`;
-                            html += `${space}${space}*/</span>${newLine}`;
+                            html += `${space}${space}<span class="comment" >/*${littlerSpace}`;
+                            html += `${iObj.__}${littlerSpace}`;
+                            html += `*/</span>${newLine}`;
                         }
                         if((iObj._.required &&iObj._.required == '0') || (iObj._.attribute && iObj._.attribute === 'optional')){
                             html += `${space}${space}<span class='type'>optional</span>`+littleSpace;
@@ -479,9 +479,9 @@ export class XmlMakerForFuCommandXmlComponent implements OnInit {
             notifications.forEach(function(obj, index){
                 let items: any[] = fix2Array(obj.item);
                 if(obj.__) {
-                    html += `<span class="comment" >${space}/*${newLine}`;
-                    html += `${space}*${littlerSpace}${obj.__}${newLine}`;
-                    html += `${space}*/</span>${newLine}`;
+                    html += `<span class="comment" >${space}/*${littlerSpace}`;
+                    html += `${obj.__}${littlerSpace}`;
+                    html += `*/</span>${newLine}`;
                 }
                 if(obj._.broadcast){
                     if(obj._.broadcast == 1){
@@ -495,9 +495,9 @@ export class XmlMakerForFuCommandXmlComponent implements OnInit {
 
                 items.forEach((iObj, iIndex)=> {
                     if(iObj.__) {
-                        html += `${space}${space}<span class="comment" >/*${newLine}`;
-                        html += `${space}${space}*${littlerSpace}${iObj.__}${newLine}`;
-                        html += `${space}${space}*/</span>${newLine}`;
+                        html += `${space}${space}<span class="comment" >/*${littlerSpace}`;
+                        html += `${littlerSpace}${iObj.__}${littlerSpace}`;
+                        html += `*/</span>${newLine}`;
                     }
                     if((iObj._.required &&iObj._.required == '0') || (iObj._.attribute && iObj._.attribute === 'optional')){
                         html += `${space}${space}<span class='type'>optional</span>`+littleSpace;

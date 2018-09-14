@@ -7,6 +7,7 @@ export const scriptCode: string = `<script>
        function toShowModel(modelType, modelName, modelId){
        var isHave = false;
        var searchClass = document.getElementsByName("modelName");
+       console.log(searchClass)
        for (var i = 0; i < searchClass.length; i++) {
            if(searchClass[i].id == modelName){
                isHave = true;
@@ -14,6 +15,7 @@ export const scriptCode: string = `<script>
        }
        var toolUrl = "http://localhost:8088/modelWin/";
        // var toolUrl = "http://172.16.2.118:8988/modelWin/";
+       // isHave = false;
        if(isHave){
            window.open(toolUrl + modelType +"/" + modelName +"/" + modelId, "showModelWin");
        }else{
@@ -27,9 +29,9 @@ export const calcStructArray2CodeStruct = function(struts: any[], type?: string,
     struts.forEach((obj)=> {
         let items: any[] = fix2Array(obj.item);
         if(obj.__) {
-            html += `<span class="comment" >${space}/*${newLine}`;
-            html += `${space}*${littlerSpace}${obj.__}${newLine}`;
-            html += `${space}*/</span>${newLine}`;
+            html += `<span class="comment" >${space}/*${littlerSpace}`;
+            html += `${obj.__}`;
+            html += `${littlerSpace}*/</span>${newLine}`;
         }
         html += `${space}<span class="struct">struct</span>${littleSpace}<span class="structName" id="${obj._.name}" name="modelName">${obj._.name}</span>`;
         if(setId){
@@ -38,9 +40,9 @@ export const calcStructArray2CodeStruct = function(struts: any[], type?: string,
         html += `${littlerSpace}{${this.newLine}`;
         items.forEach((iObj)=> {
             if(iObj.__) {
-                html += `${space}<span class="comment" >${space}/*${newLine}`;
-                html += `${space}${space}*${littlerSpace}${iObj.__}${newLine}`;
-                html += `${space}${space}*/</span>${newLine}`;
+                html += `${space}<span class="comment" >${space}/*${littlerSpace}`;
+                html += `${iObj.__}`;
+                html += `${littlerSpace}*/</span>${newLine}`;
             }
             switch (type) {
                 case "command":
@@ -78,8 +80,8 @@ export const calcEnumArray2CodeEnum = function(enums: any[], type?: string, setI
     enums.forEach((obj)=> {
         let items: any[] = fix2Array(obj.eitem);
         if(obj.__) {
-            html += `<span class="comment" >${space}/*${newLine}`;
-            html += `${space}*${littlerSpace}${obj.__}${newLine}`;
+            html += `<span class="comment" >${space}/*${space}`;
+            html += `${obj.__}`;
             html += `${space}*/</span>${newLine}`;
         }
         html += `${space}<span class="enum">enum</span>${littleSpace}<span class="enumName" id="${obj._.name}" name="modelName">${obj._.name}</span>`;
@@ -89,9 +91,9 @@ export const calcEnumArray2CodeEnum = function(enums: any[], type?: string, setI
         html += `${littlerSpace}{${this.newLine}`;
         items.forEach((iObj)=> {
             if(iObj.__) {
-                html += `${space}<span class="comment" >${space}/*${newLine}`;
-                html += `${space}${space}*${littlerSpace}${iObj.__}${newLine}`;
-                html += `${space}${space}*/</span>${newLine}`;
+                html += `${space}<span class="comment" >${space}/*${space}`;
+                html += `${iObj.__}`;
+                html += `${space}*/</span>${newLine}`;
             }
             html += `${space}${space}<span class="enumType">${iObj._.name}</span>${littlerSpace}=${littlerSpace}${iObj._.value};`
             if(iObj._.desc){

@@ -4,35 +4,30 @@ import {DBOpeType, ServerUrl} from "../../../../config/Common";
 export class VWVOService {
     public menuList: any[] = [
         {
-            key: "moduleXml",
-            text: "RPC函数定义",
+            key: "commandXml",
+            text: "客户端服务器Command定义",
             active: true
         },
-        {
-            key: "commandXml",
-            text: "客户端服务器Command定义"
-        },
-        {
-            key: "httpCommandXml",
-            text: "HttpCommand定义"
-        },
-
         {
             key: "metaDataXml",
             text: "元数据定义"
         },
         {
+            key: "moduleXml",
+            text: "RPC函数定义"
+        }/*,
+        {
+            key: "httpCommandXml",
+            text: "HttpCommand定义"
+        },
+        {
             key: "eventXml",
             text: "Event定义"
         },
-        //{
-        //    key: "notificationXml",
-        //    text: "Notification定义"
-        //},
         {
             key: "recordXml",
             text: "Record定义"
-        },
+        },*/
 
     ];
 

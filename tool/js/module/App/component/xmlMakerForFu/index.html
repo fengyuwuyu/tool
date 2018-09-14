@@ -1,13 +1,13 @@
 <div class="xmlMakerForFu">
-    <div class="tabMenu">
+    <!--<div class="tabMenu">
         <ul >
             <li *ngFor="let menu of getMenuList()" [class.active]="menu.active" >
                 <a (click)="routePanel(menu.key)" href="javascript:void(0)">{{menu.text}}</a>
             </li>
         </ul>
-    </div>
+    </div>-->
     <div class="tabPanel">
         <vwvo-xmlMakerForFu-vwvo [active]="menuListObj.vwvo.active"></vwvo-xmlMakerForFu-vwvo>
-        <vwvo-xmlMakerForFu-wolverine [active]="menuListObj.wolverine.active"></vwvo-xmlMakerForFu-wolverine>
+        <!--<vwvo-xmlMakerForFu-wolverine [active]="menuListObj.wolverine.active"></vwvo-xmlMakerForFu-wolverine>-->
     </div>
 </div>

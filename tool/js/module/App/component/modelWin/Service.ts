@@ -21,7 +21,7 @@ export class ModuleWinService {
                     this._list = resJson.list;
                     this._list.forEach((obj) => {
                         obj.json = JSON.parse(obj.jsonStr);
-                        obj.downloadUrl = ServerUrl + "xmlForFu/" + (obj.json.root.module._.service || obj.json.root.module._.name) + ".xml";
+                        // obj.downloadUrl = ServerUrl + "xmlForFu/" + (obj.json.root.module._.service || obj.json.root.module._.name) + ".xml";
                     })
                     e.successCallback(this._list);
                 }
