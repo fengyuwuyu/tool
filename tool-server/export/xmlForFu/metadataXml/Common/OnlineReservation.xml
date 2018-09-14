@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <imports>
+        <import path="Base" />
+    </imports>
+    <!--
+    category类型：Common, User, UserAsset, UserInteraction, Lbs, MoniStore, Dao, Wolverine 注意大小写
+    -->
+    <types category="Common" moduleName="OnlineReservation">
+      <!--
+        活动
+        -->
+        <struct name="Activity">
+            <item name="id" type="int" />
+            <!--
+            餐厅名称
+            -->
+            <item name="name" type="string" />
+            <!--
+            描述
+            -->
+            <item name="desc" type="string" />
+            <item name="type" type="int" />
+            <!--
+            图像
+            -->
+            <item name="resourceId" type="int" />
+            <item name="resourceHash" type="string" />
+            <!--
+            图标
+            -->
+            <item name="resourceIconId" type="int" />
+            <item name="resourceIconHash" type="string" />
+        </struct>
+        <!--
+        餐厅评价
+        -->
+        <struct name="DiningroomEvaluate">
+            <item name="id" type="int" />
+            <!--
+            餐厅id
+            -->
+            <item name="diningroomId" type="int" />
+            <!--
+            餐厅卫生
+            -->
+            <item name="restaurantSanitation" type="int" />
+            <!--
+            饭菜卫生
+            -->
+            <item name="dishesSanitation" type="int" />
+            <!--
+            餐具卫生
+            -->
+            <item name="tablewareSanitation" type="int" />
+            <!--
+            食材新鲜
+            -->
+            <item name="foodFresh" type="int" />
+            <!--
+            热菜质量
+            -->
+            <item name="hotDishesQuality" type="int" />
+            <!--
+            面点质量
+            -->
+            <item name="pastryQuality" type="int" />
+            <!--
+            冷菜质量
+            -->
+            <item name="coldDishesQuality" type="int" />
+            <!--
+            营养搭配
+            -->
+            <item name="nutritionMatch" type="int" />
+            <!--
+            品种更新
+            -->
+            <item name="varietyUpdate" type="int" />
+            <!--
+            送餐及时
+            -->
+            <item name="deliverInTime" type="int" />
+            <!--
+            特色窗口
+            -->
+            <item name="featureWindow" type="int" />
+            <!--
+            办公两楼
+            -->
+            <item name="workBuilding" type="int" />
+            <!--
+            活动中心
+            -->
+            <item name="activityCenter" type="int" />
+            <!--
+            员工浴室
+            -->
+            <item name="employeeBathroom" type="int" />
+            <!--
+            评价建议
+            -->
+            <item name="evaluate" type="string" />
+            <!--
+            总分
+            -->
+            <item name="score" type="double" />
+            <!--
+            员工昵称
+            -->
+            <item name="nickName" type="string" />
+            <!--
+            员工姓名
+            -->
+            <item name="userName" type="string" />
+            <!--
+            员工编号
+            -->
+            <item name="userNo" type="string" />
+            <!--
+            部门
+            -->
+            <item name="orgId" type="int" />
+            <!--
+            商家回复
+            -->
+            <item name="merchantReply" type="string" />
+        </struct>
+        <!--
+        餐厅
+        -->
+        <struct name="Diningroom">
+            <!--
+            主键
+            -->
+            <item name="id" type="int" />
+            <!--
+            餐厅名称
+            -->
+            <item name="name" type="string" />
+            <!--
+            描述
+            -->
+            <item name="desc" type="string" />
+            <!--
+            排序序号
+            -->
+            <item name="index" type="int" />
+            <!--
+            起送费用
+            -->
+            <item name="minCost" type="double" />
+            <!--
+            资源id
+            -->
+            <item name="resourceId" type="int" />
+            <!--
+            资源hash
+            -->
+            <item name="resourceHash" type="string" />
+            <!--
+            配送
+            -->
+            <item name="delivery" type="string" />
+            <!--
+            配送费
+            -->
+            <item name="deliveryCost" type="double" />
+            <!--
+            配送耗时
+            -->
+            <item name="deliveryTime" type="int" />
+            <!--
+            综合评分
+            -->
+            <item name="score" type="double" />
+            <!--
+            服务得分
+            -->
+            <item name="serviceScore" type="double" />
+            <!--
+            食物评分
+            -->
+            <item name="foodScore" type="double" />
+            <!--
+            商家排名比
+            -->
+            <item name="rankRate" type="double" />
+        </struct>
+        <enum />
+    </types>
+</root>

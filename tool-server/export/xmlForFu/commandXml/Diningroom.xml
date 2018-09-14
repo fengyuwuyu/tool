@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <imports>
+        <import category="Common" path="OnlineReservation" />
+        <import category="Common" path="Currency" />
+    </imports>
+    <types />
+    <module id="10001" name="Diningroom">
+        <Client>
+            <!--
+            url: /api/diningroom/getById/:id
+            -->
+            <method name="GetDiningroomById" type="request" http="1" id="1001">
+                <item name="diningroom" type="Diningroom" out="1" />
+            </method>
+        </Client>
+        <Server />
+    </module>
+</root>
