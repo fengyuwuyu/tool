@@ -32,7 +32,7 @@ export class XmlMakerForFuModelWinComponent {
     }
 
     ngOnInit(){
-        if(this.xmlCatagory == "metadataXml"){
+        if(this.xmlCatagory == "metaDataXml"){
             this.metaDataService.list({
                 successCallback: (list: any)=> {
                     this.metaDataList = list;
@@ -105,6 +105,7 @@ export class XmlMakerForFuModelWinComponent {
     searchFromMetaDateXml(key: any){
         var metaDataXml: any;
         var exist = false;
+        console.log(key)
         this.metaDataList.forEach(function(ele){
             if(ele.strutNames && ele.strutNames.indexOf('-' + key + '-') != -1){
                 exist = true;
