@@ -117,7 +117,7 @@ export class XmlMakerForFuCommandXmlComponent implements OnInit {
             let commandXml = commandXmlList[i];
             let mInfo = this.getCommandXmlBaseInfo(commandXml);
             let name: string = mInfo.service || mInfo.name;
-            if(commandXml.id !== id && (mInfo.name.toLowerCase() == mName.toLowerCase())) {
+            if(commandXml.id !== id && ((name + '').toLowerCase() == mName.toLowerCase())) {
                 return true;
             }
         }
