@@ -26,20 +26,12 @@ export class XmlMakerForFuCommandXmlComponent implements OnInit {
             module: {
                 _: {
                     id: 0,
-                    name: "module"
+                    name: "module",
+                    desc: ""
                 },
                 Client: {
                 },
                 Server: {
-                },
-                Notification: {
-                    notify: {
-                        _: {
-                            id: "",
-                            name: "",
-                            businessType: ""
-                        }
-                    }
                 }
             }
         }
@@ -380,8 +372,11 @@ export class XmlMakerForFuCommandXmlComponent implements OnInit {
             html += `${space}*${littlerSpace}${module.__}${newLine}`;
             html += `${space}*/</span>${newLine}`;
         }
+        html += `${space}moduleId = ${moduleInfo.id};${newLine}`;
         html += `${space}moduleName = <span class="str">"${moduleInfo.name}"</span>;${newLine}`;
-        html += `${space}moduleId = ${moduleInfo.id};${newLine}${newLine}`;
+        if (moduleInfo.desc) {
+          html += `${space}desc = <span class="str">"${moduleInfo.desc}"</span>;${newLine}`;
+        }
         if(moduleInfo.service) {
             html += `${space}service = "${moduleInfo.service}";${newLine}`;
         }

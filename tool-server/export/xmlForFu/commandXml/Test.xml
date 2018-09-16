@@ -11,7 +11,7 @@
             <item name="passwd1" type="string" />
         </struct>
     </types>
-    <module id="10001" name="Test">
+    <module id="10001" name="Test" desc="测试">
         <Client>
             <method id="1001" name="getById">
                 <item name="id" type="int" />

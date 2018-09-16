@@ -27,7 +27,7 @@ export class XmlMakerForFuMetaDataXmlComponent implements OnInit {
             },
             types: {
                 __: 'category类型：Common, User, UserAsset, UserInteraction, Lbs, MoniStore, Dao, Wolverine 注意大小写',
-                _: {category: '', moduleName: ''},
+                _: {category: '', moduleName: '', desc: ''},
                 struct: {},
                 enum: {}
             }
@@ -406,7 +406,10 @@ export class XmlMakerForFuMetaDataXmlComponent implements OnInit {
         //var moduleInfo: any = module._;
         var html:string = "";
         html += `${space}category = <span class="str">"${types._.category}"</span>;${newLine}`;
-        html += `${space}module = <span class="str">"${types._.moduleName}"</span>;${newLine}${newLine}`;
+        html += `${space}module = <span class="str">"${types._.moduleName}"</span>;${newLine}`;
+        if (types._.desc) {
+          html += `${space}desc = <span class="str">"${types._.desc}"</span>;${newLine}${newLine}`;
+        }
         if (importEles && importEles.length > 0) {
             importEles.forEach(function (importEle) {
                 if (importEle._.path || importEle._.category) {
